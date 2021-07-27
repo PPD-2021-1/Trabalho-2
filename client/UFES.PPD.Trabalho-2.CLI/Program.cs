@@ -9,6 +9,7 @@ namespace UFES.PPD.Trabalho_2.CLI
         static async Task Main(string[] args)
         {
             using var channel = GrpcChannel.ForAddress("http://localhost:5001");
+            //var client = new 
         }
     }
 }
