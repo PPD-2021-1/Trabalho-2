@@ -24,7 +24,7 @@ server.addService( service, {
     put: put
 })
 
-server.bindAsync('50051', grpc.ServerCredentials.createInsecure(), (error) => {
+server.bindAsync('0.0.0.0:50051', grpc.ServerCredentials.createInsecure(), (error) => {
     if (error) {
         console.log(error)
         process.abort()
