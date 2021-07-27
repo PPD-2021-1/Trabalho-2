@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+message M {
+    required string k = 1;
+    optional int32 v = 2;
+}
+
+message PutReply {
+    required bool success = 3;
+}
+
+service Table {
+    rpc put (M) returns (PutReply);
+    rpc get (M) returns (M);
+}
