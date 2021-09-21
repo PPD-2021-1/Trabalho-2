@@ -20,6 +20,8 @@ function get(call: grpc.ServerUnaryCall<IMessage, IMessage>, callback: grpc.send
         response.v = value
     }
 
+    //console.log('Recuperando ' + value + ' da chave ' + key)
+
     callback(null, response)
 }
 
@@ -31,7 +33,15 @@ function put(call: grpc.ServerUnaryCall<IMessage, IPutReply>, callback: grpc.sen
         table[key] = value
     }
 
+    //console.log('Inserindo ' + value + ' na chave ' + key)
+
     return callback(null, {success: true})
 }
 
-export {get, put}
+function watch() {
+    setInterval(() => {
+        console.log('Tamanho da tabela: ' + Object.values(<any> table).length + ' chaves')
+    }, 1000)
+}
+
+export {get, put, watch}
